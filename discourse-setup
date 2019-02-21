@@ -441,7 +441,7 @@ ask_user_for_config() {
 
 
     echo ""
-    read -p "ENTER to continue, 'n' to try again, Ctrl+C to exit: " config_ok
+    config_ok=""
   done
 
   sed -i -e "s/^  DISCOURSE_HOSTNAME:.*/  DISCOURSE_HOSTNAME: $hostname/w $changelog" $web_file
