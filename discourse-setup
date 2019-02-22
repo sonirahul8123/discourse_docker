@@ -333,10 +333,10 @@ ask_user_for_config() {
 
   while [[ "$config_ok" == "n" ]]
   do
-    if [ ! -z "$hostname" ]
+    if [ -z "$hostname" ]
     then
       read -p "Hostname for your Discourse? [$hostname]: " new_value
-      if [ ! -z "$new_value" ]
+      if [ -z "$new_value" ]
       then
           hostname="$new_value"
       fi
@@ -349,28 +349,28 @@ ask_user_for_config() {
       fi
     fi
 
-    if [ ! -z "$developer_emails" ]
+    if [ -z "$developer_emails" ]
     then
       read -p "Email address for admin account(s)? [$developer_emails]: " new_value
-      if [ ! -z "$new_value" ]
+      if [ -z "$new_value" ]
       then
           developer_emails="$new_value"
       fi
     fi
 
-    if [ ! -z "$smtp_address" ]
+    if [ -z "$smtp_address" ]
     then
       read -p "SMTP server address? [$smtp_address]: " new_value
-      if [ ! -z "$new_value" ]
+      if [ -z "$new_value" ]
       then
         smtp_address="$new_value"
       fi
     fi
 
-    if [ ! -z "$smtp_port" ]
+    if [ -z "$smtp_port" ]
     then
       read -p "SMTP port? [$smtp_port]: " new_value
-      if [ ! -z "$new_value" ]
+      if [ -z "$new_value" ]
       then
         smtp_port="$new_value"
       fi
@@ -395,10 +395,10 @@ ask_user_for_config() {
       fi
     fi
 
-    if [ ! -z "$smtp_user_name" ]
+    if [ -z "$smtp_user_name" ]
     then
       read -p "SMTP user name? [$smtp_user_name]: " new_value
-      if [ ! -z "$new_value" ]
+      if [ -z "$new_value" ]
       then
           smtp_user_name="$new_value"
       fi
@@ -406,10 +406,10 @@ ask_user_for_config() {
 
     smtp_password="$new_value"
     
-    if [ ! -z $letsencrypt_account_email ]
+    if [ -z $letsencrypt_account_email ]
     then
       read -p "Optional email address for setting up Let's Encrypt? ($letsencrypt_status) [$letsencrypt_account_email]: " new_value
-      if [ ! -z "$new_value" ]
+      if [ -z "$new_value" ]
       then
           letsencrypt_account_email="$new_value"
           if [ "${new_value,,}" = "off" ]
